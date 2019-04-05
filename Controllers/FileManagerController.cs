@@ -77,8 +77,7 @@ namespace EJ2FileManagerServices.Controllers
         [Route("Download")]
         public IActionResult Download(string downloadInput)
         {
-            FEParams args = JsonConvert.DeserializeObject<FEParams>(downloadInput);
-            args.path = (args.path);
+            FEParams args = JsonConvert.DeserializeObject<FEParams>(downloadInput);      
             return operation.Download(args.path, args.itemNames);
         }
 
