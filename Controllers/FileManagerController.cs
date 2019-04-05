@@ -18,12 +18,11 @@ namespace EJ2FileManagerServices.Controllers
     public class FileManagerController : Controller
     {
         public FileManagerProviderBase operation;
-        public string basePath;
-        string root = "wwwroot\\Files";
+        public string basePath;        
         public FileManagerController(IHostingEnvironment hostingEnvironment)
         {
             this.basePath = hostingEnvironment.ContentRootPath;
-            this.operation = new FileManagerProviderBase("D:\\filemanager\\ej2-web-services");
+            this.operation = new FileManagerProviderBase(this.basePath + "wwwroot\\Files" );
         }
         [Route("FileOperations")]
         public object FileOperations([FromBody] FEParams args)
